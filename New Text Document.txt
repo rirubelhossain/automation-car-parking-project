@@ -1,0 +1,36 @@
+#include<Servo.h>
+Servo servoIn, servoOut;
+int ldr = A5;
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(ldr, INPUT);
+  Serial.begin(9600);
+  
+  servoIn.attach(5);
+  servoIn.write(0);
+
+}
+void motor()
+{
+  
+  servoIn.write(90);
+  delay(2000);
+  servoIn.write(0);
+  delay(5000);
+  
+}
+
+void loop() {
+
+  int a;
+  a = digitalRead(ldr);
+  if( a== 0)
+  { 
+    motor();
+    Serial.println(a);
+    delay(200);
+  
+  }
+ 
+  // put your main code here, to run repeatedly
+}
